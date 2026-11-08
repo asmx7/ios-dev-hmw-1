@@ -18,14 +18,17 @@ class HW1Questions {
     /// - Returns: An array of file names whose excluded file type length matches `count`.
     func getFileNames(for filenames: [String], withCount count: Int) -> [String] {
         var result: [String] = []
+        //for loop to iterate each filename
+        for file in filenames {
+            let parts = file.split(separator: ".")
+            let name = parts[0]
         
-        for filename in filenames {
-            let nameWithoutExtension = (filename as NSString).deletingPathExtension
-            
-            if nameWithoutExtension.count == count {
-                result.append(filename)
+            if name.count == count {
+                result.append(file)
             }
         }
+
+            
         return result
     }
     
